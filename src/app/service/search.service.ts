@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
 
-  constructor() { }
+  searchURL = 'http://3.92.127.159:5000/search'
+  constructor(private http: HttpClient) { }
+
+  search = () => {
+    return this.http.get(this.searchURL);
+  }
 }
