@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
+import {InputTextModule} from 'primeng/primeng';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainLayoutComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]
