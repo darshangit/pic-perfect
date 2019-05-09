@@ -8,7 +8,7 @@ import {SearchService} from '../service/search.service';
 })
 export class MainLayoutComponent implements OnInit {
 
-  incomingList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  incomingList: SearchMainResponse[];
   searchClicked = false;
 
   constructor(private searchService: SearchService) { }
@@ -19,7 +19,8 @@ export class MainLayoutComponent implements OnInit {
   search = () => {
     this.searchService.search().subscribe(resp => {
       this.searchClicked = true;
-      console.log('resp', resp);
+      this.incomingList = resp;
+      console.log('resp', this.incomingList);
     });
 }
 

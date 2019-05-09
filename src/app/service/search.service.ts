@@ -10,6 +10,6 @@ export class SearchService {
   constructor(private http: HttpClient) { }
 
   search = () => {
-    return this.http.get(this.searchURL);
+    return this.http.get<SearchMainResponse[]>(this.searchURL);
   }
 }

@@ -13,15 +13,22 @@
   <br/>
 
   <div *ngIf="searchClicked" class="row">
-    <div class="col-md-4 bottomPad" *ngFor="let i of incomingList" >
+    <div class="col-md-4 bottomPad" *ngFor="let searchResp of incomingList" >
       <div class="card animated fadeIn">
         <img src="../../assets/test.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Anshu Verma</h5>
-          <p class="card-text">An avid photographer with 6years of experience.</p>
+          <h5 class="card-title text-muted">{{searchResp._source.VendorName}}</h5>
+          <p class="card-text"><span class="font-weight-bold">Travel Price: </span>{{searchResp._source.RatesForTravel}}</p>
+          <p class="card-text"><span class="font-weight-bold">Expertise in: </span> <span  class="mr-1 mt-1" *ngFor="let category of searchResp._source.Category">
+              <span class="badge badge-dark">{{category}}</span>
+          </span></p>
+          <p class="card-text"><span class="font-weight-bold">Services provided in: </span> <span  class="mr-1 mt-1" *ngFor="let loc of searchResp._source.LocationsAvailable">
+              <span class="badge badge-primary">{{loc}}</span>
+          </span></p>
+
         </div>
         <div class="card-footer">
-          <small class="text-muted">Available in 2 days</small>
+          <small class="text-muted"><span class="font-weight-bold">Situated in </span> {{searchResp._source.PrimaryLocation}}</small>
         </div>
 
       </div>
